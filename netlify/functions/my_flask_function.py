@@ -7,14 +7,12 @@ from werkzeug.wrappers import Request, Response
 app = Flask(__name__)
 
 # Memuat model
-model = joblib.load('path_to_model.pkl')  # Ganti dengan path yang benar
+model = joblib.load('random_forest_model.pkl')  # Pastikan path model sesuai
 
-# Endpoint Home
 @app.route('/')
 def home():
     return render_template('index.html')
 
-# Endpoint Prediksi
 @app.route('/predict', methods=['POST'])
 def predict():
     # Mendapatkan data dari form
