@@ -7,13 +7,12 @@ from werkzeug.wrappers import Request, Response
 app = Flask(__name__)
 
 # Memuat model
-model = joblib.load(r'class_pay proyek\random_forest_model.pkl')  # Sesuaikan dengan path model Anda
+model = joblib.load('path_to_model.pkl')  # Ganti dengan path yang benar
 
 # Endpoint Home
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 # Endpoint Prediksi
 @app.route('/predict', methods=['POST'])
@@ -53,6 +52,7 @@ def predict():
 
 # Fungsi untuk menjalankan Flask dalam serverless function
 def handler(event, context):
+    """ Fungsi untuk menjalankan Flask dalam serverless function """
     # Mengubah event menjadi objek request
     request = Request(event)
 
