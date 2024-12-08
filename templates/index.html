@@ -90,7 +90,7 @@
 
   <div class="container">
     <h2>Predict Payment Method</h2>
-    <form action="/predict" method="post">
+    <form id="predictForm">
       <label for="gender">Gender:</label>
       <select name="gender" id="gender">
         <option value="Male">Male</option>
@@ -124,15 +124,42 @@
       <label for="price_per_unit">Price per Unit:</label>
       <input type="number" name="price_per_unit" id="price_per_unit" step="0.01" required />
 
-      <button type="submit">Predict</button>
+      <button type="button" onclick="submitPrediction()">Predict</button>
     </form>
 
-    {% if prediction_text %}
-    <div class="prediction-result">
-      <h3>{{ prediction_text }}</h3>
-    </div>
-    {% endif %}
+    <div class="prediction-result"></div>
   </div>
 
+  <script>
+    async function submitPrediction() {
+      // Ambil data dari form
+      const formData = {
+        gender: document.getElementById("gender").value,
+        age: document.getElementById("age").value,
+        product_category: document.getElementById("product_category").value,
+        city: document.getElementById("city").value,
+        quantity: document.getElementById("quantity").value,
+        price_per_unit: document.getElementById("price_per_unit").value,
+      };
+
+      try {
+        // Kirim data ke server menggunakan AJAX
+        const response = await fetch("/.netlify/functions/my_flask_function", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        // Ambil hasil prediksi dari server
+        const data = await response.json();
+
+        // Tampilkan hasil prediksi di halaman
+        document.querySelector(".prediction-result").innerHTML = `<h3>${data.prediction_text}</h3>`;
+      } catch (error) {
+        console.error("Error:", error);
+        document.querySelector(".prediction-result").innerHTML = `<h3>Terjadi kesalahan. Coba lagi nanti.</h3>`;
+      }
+    }
+  </script>
 </body>
 </html>
