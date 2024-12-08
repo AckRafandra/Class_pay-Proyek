@@ -1,6 +1,11 @@
 [build]
   functions = "netlify/functions"
   publish = "templates"
+  
+[[redirects]]
+  from = "/predict"
+  to = "/.netlify/functions/my_flask_function/predict"
+  status = 200
 
 [context.production.environment]
   PYTHON_VERSION = "3.9"  # Tentukan versi Python yang digunakan
