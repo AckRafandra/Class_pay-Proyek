@@ -48,22 +48,5 @@ def predict():
 
     return render_template('index.html', prediction_text=f'Metode Pembayaran: {result}')
 
-# Fungsi handler untuk Netlify serverless function
-def handler(event, context):
-    """ Fungsi untuk menjalankan Flask dalam serverless function """
-    # Mengubah event menjadi objek request
-    request = Request(event)
-
-    # Menggunakan Flask app untuk menangani request
-    with app.request_context(request):
-        response = app.full_dispatch_request()
-
-    # Kembalikan response
-    return {
-        'statusCode': response.status_code,
-        'body': response.get_data(as_text=True),
-        'headers': {'Content-Type': 'application/json'}
-    }
-
 if __name__ == "__main__":
     app.run(debug=True)
