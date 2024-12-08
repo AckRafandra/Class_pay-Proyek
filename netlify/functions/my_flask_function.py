@@ -12,7 +12,7 @@ model = joblib.load(r'class_pay proyek\random_forest_model.pkl')  # Sesuaikan de
 # Endpoint Home
 @app.route('/')
 def home():
-    return render_template('index.html', prediction_text=f'Metode Pembayaran: {result}')
+    return render_template('index.html')
 
 
 # Endpoint Prediksi
