@@ -1,8 +1,0 @@
-[build]
-  functions = "netlify/functions"
-  publish = "templates"
-
-[[redirects]]
-  from = "/predict"
-  to = "/.netlify/functions/my_flask_function"
-  status = 200
