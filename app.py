@@ -5,7 +5,7 @@ import sklearn
 
 
 # Load model
-    model = joblib.load('random_forest_model 2.pkl')
+model = joblib.load('random_forest_model 2.pkl')
 
 # Title and description
 st.title("Prediksi Metode Pembayaran")
