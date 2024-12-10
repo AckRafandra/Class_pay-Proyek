@@ -22,9 +22,11 @@ gender = st.selectbox("Pilih Jenis Kelamin:", ["Laki-laki", "Perempuan"])
 # Batasan usia minimal 1 tahun dan maksimal 120 tahun
 age = st.number_input("Usia (tahun):", min_value=1, max_value=120, step=1, format="%d")
 
+# Update product categories
 product_category = st.selectbox(
-    "Pilih Kategori Produk:", ["Pakaian", "Elektronik", "Kecantikan"]
+    "Pilih Kategori Produk:", ["Pakaian", "Elektronik", "Kecantikan", "Perlengkapan Rumah Tangga", "Snack", "Makanan Cepat Saji", "Mainan"]
 )
+
 city = st.selectbox(
     "Pilih Kota:", 
     ["Jakarta", "Bandung", "Surabaya", "Medan", "Yogyakarta", "Denpasar", "Semarang"]
@@ -47,6 +49,11 @@ if st.button("Prediksi Metode Pembayaran"):
         1 if gender == "Laki-laki" else 0,
         1 if product_category == "Pakaian" else 0,
         1 if product_category == "Elektronik" else 0,
+        1 if product_category == "Kecantikan" else 0,
+        1 if product_category == "Perlengkapan Rumah Tangga" else 0,
+        1 if product_category == "Snack" else 0,
+        1 if product_category == "Makanan Cepat Saji" else 0,
+        1 if product_category == "Mainan" else 0,
         1 if city == "Denpasar" else 0,
         1 if city == "Jakarta" else 0,
         1 if city == "Makassar" else 0,
