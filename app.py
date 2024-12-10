@@ -13,6 +13,8 @@ st.write("""
     Masukkan data pelanggan untuk memprediksi metode pembayaran yang paling sesuai.
     Kami akan membantu Anda memahami pola perilaku pelanggan berdasarkan input yang diberikan.
 """)
+# Add an image to make it more attractive (you can replace with your own image URL or file)
+st.image("https://wallpapers.com/images/high/japanese-anime-aesthetic-19r6zi160sm63okj.webp", width=700)  # Replace with your image URL
 
 # Input fields
 st.subheader("Data Pelanggan")
