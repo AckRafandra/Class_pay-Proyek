@@ -63,7 +63,7 @@ if st.button("Prediksi Metode Pembayaran"):
         try:
             # Predict
             prediction = model.predict(features)[0]
-            payment_methods = {0: "Tunai", 1: "E-wallet", 2: "Kartu Kredit"}
+            payment_methods = {0: "E-wallet", 1: "Tunai", 2: "Kartu Kredit"}
             result = payment_methods[prediction]
 
             # Display result
