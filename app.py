@@ -16,6 +16,7 @@ st.write("""
 st.image("https://wallpapers.com/images/high/japanese-anime-aesthetic-19r6zi160sm63okj.webp", width=700)  # Replace with your image URL
 
 # Input fields
+age = st.number_input("Usia Pelanggan:", min_value=1, max_value=120, step=1)
 st.subheader("Data Pelanggan")
 gender = st.selectbox("Pilih Jenis Kelamin:", ["Laki-laki", "Perempuan"])
 
