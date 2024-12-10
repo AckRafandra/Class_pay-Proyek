@@ -3,7 +3,7 @@ import joblib
 import numpy as np
 
 # Load model
-model = joblib.load('random_forest_model.pkl')
+model = joblib.load('random_forest_model 2.pkl')
 
 # Title and description
 st.title("Prediksi Metode Pembayaran")
