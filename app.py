@@ -8,7 +8,7 @@ st.write(f"Versi Scikit-learn: {sklearn.__version__}")
 
 # Load model
 try:
-    model = joblib.load('random_forest_model_2.pkl')
+    model = joblib.load('random_forest_model 2.pkl')
 except FileNotFoundError:
     st.error("Model tidak ditemukan. Pastikan file 'random_forest_model_2.pkl' ada di folder yang sesuai.")
 
