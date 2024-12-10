@@ -3,19 +3,20 @@ import joblib
 import numpy as np
 
 # Load model
-model = joblib.load('random_forest_model_2.pkl')
+model = joblib.load('random_forest_model 2.pkl')
 
 # Title and description
 st.title("Prediksi Metode Pembayaran")
 st.write("""
     Masukkan data pelanggan untuk memprediksi metode pembayaran yang paling sesuai.
+    Kami akan membantu Anda memahami pola perilaku pelanggan berdasarkan input yang diberikan.
 """)
+
+# Add an image to make it more attractive (you can replace with your own image URL or file)
+st.image("https://wallpapers.com/images/high/japanese-anime-aesthetic-19r6zi160sm63okj.webp", width=700)  # Replace with your image URL
 
 # Input fields
 st.subheader("Data Pelanggan")
-age = st.number_input("Usia (tahun):", min_value=1, max_value=120, step=1, format="%d")
-quantity = st.number_input("Jumlah Barang:", min_value=1, step=1)
-price_per_unit = st.number_input("Harga per Unit (dalam Rupiah):", min_value=500, max_value=100000000, step=500)
 gender = st.selectbox("Pilih Jenis Kelamin:", ["Laki-laki", "Perempuan"])
 
 product_category = st.selectbox(
@@ -28,18 +29,19 @@ city = st.selectbox(
     ["Denpasar", "Jakarta", "Medan", "Semarang", "Surabaya", "Yogyakarta"]
 )
 
+quantity = st.number_input("Jumlah Barang:", min_value=1, step=1)
+price_per_unit = st.number_input("Harga per Unit (dalam Rupiah):", min_value=500, max_value=100000000, step=500)
+
 # Prediction button
 if st.button("Prediksi Metode Pembayaran"):
     # Preprocess input
     total_amount = quantity * price_per_unit
 
-    # Encoding input sesuai dengan fitur pelatihan
     features = np.array([
-        age,
         quantity,
         price_per_unit,
         total_amount,
-        1 if gender == "Laki-laki" else 0,  # Gender_Male
+        1 if gender == "Laki-laki" else 0,
         1 if product_category == "Clothing" else 0,
         1 if product_category == "Electronics" else 0,
         1 if product_category == "Fast Food" else 0,
