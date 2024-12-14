@@ -24,13 +24,13 @@ gender = st.selectbox("Pilih Jenis Kelamin:", ["Laki-laki", "Perempuan"])
 # Select product category
 product_category = st.selectbox(
     "Pilih Kategori Produk:", 
-    ["Books and Stationery", "Clothing", "Electronics", "Food and Beverages", "Health and Beauty", "Home and Living", "Toys and Games"]
+    ["Clothing", "Electronics", "Food and Beverages", "Health and Beauty", "Home and Living", "Toys and Games"]
 )
 
 # Select city
 city = st.selectbox(
     "Pilih Kota:", 
-    ["Surabaya", "Bandung", "Jakarta", "Yogyakarta", "Medan", "Semarang", "Denpasar"]
+    ["Surabaya", "Jakarta", "Yogyakarta", "Medan", "Semarang", "Denpasar"]
 )
 
 quantity = st.number_input("Jumlah Barang:", min_value=1, step=1)
@@ -49,7 +49,6 @@ if st.button("Prediksi Metode Pembayaran"):
             price_per_unit,
             total_amount,
             1 if gender == "Laki-laki" else 0,
-            1 if product_category == "Books and Stationery" else 0,
             1 if product_category == "Clothing" else 0,
             1 if product_category == "Electronics" else 0,
             1 if product_category == "Food and Beverages" else 0,
@@ -57,7 +56,6 @@ if st.button("Prediksi Metode Pembayaran"):
             1 if product_category == "Home and Living" else 0,
             1 if product_category == "Toys and Games" else 0,
             1 if city == "Surabaya" else 0,
-            1 if city == "Bandung" else 0,
             1 if city == "Jakarta" else 0,
             1 if city == "Yogyakarta" else 0,
             1 if city == "Medan" else 0,
